@@ -13,6 +13,9 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <vaadin.version>8.0.0.alpha2</vaadin.version>
         <vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
+	<maven.compiler.release>8</maven.compiler.release>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
     <repositories>
@@ -503,16 +506,6 @@
     <version>0.8.12</version>
     <relativePath>../org.jacoco.build</relativePath>
   </parent>
-
-  <prerequisites>
-    <maven>3.0</maven>
-  </prerequisites>
-
-  <properties>
-    <maven.compiler.release>8</maven.compiler.release>
-    <maven.compiler.source>8</maven.compiler.source>
-    <maven.compiler.target>8</maven.compiler.target>
-  </properties>
 
   <dependencies>
     <dependency>
