@@ -13,9 +13,6 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <vaadin.version>8.0.0.alpha2</vaadin.version>
         <vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
-	<maven.compiler.release>8</maven.compiler.release>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
     <repositories>
@@ -157,74 +154,10 @@
 			<version>1.0</version>
 		</dependency>
 
-		<!-- Code coverage alternative of Cobertura -->
-		<dependency>
-                        <groupId>org.jacoco</groupId>
-                        <artifactId>jacoco-maven-plugin</artifactId>
-                        <version>0.8.12</version>
-                </dependency>
-
-	         <dependency>
-      <groupId>org.apache.maven</groupId>
-      <artifactId>maven-plugin-api</artifactId>
-      <version>${project.prerequisites.maven}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.maven</groupId>
-      <artifactId>maven-core</artifactId>
-      <version>${project.prerequisites.maven}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.codehaus.plexus</groupId>
-      <artifactId>plexus-utils</artifactId>
-      <version>3.0.24</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.maven.shared</groupId>
-      <artifactId>file-management</artifactId>
-      <version>3.1.0</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.apache.maven.reporting</groupId>
-      <artifactId>maven-reporting-api</artifactId>
-      <version>${project.prerequisites.maven}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>org.jacoco.agent</artifactId>
-      <classifier>runtime</classifier>
-    </dependency>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>org.jacoco.core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>org.jacoco.report</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.apache.maven.plugin-tools</groupId>
-      <artifactId>maven-plugin-annotations</artifactId>
-      <version>3.4</version>
-      <!-- annotations are needed only to build the plugin: -->
-      <scope>provided</scope>
-    </dependency>
 
 		</dependencies>
 
     <build>
-	 <sourceDirectory>src</sourceDirectory>
-    <resources>
-      <resource>
-        <directory>META-INF</directory>
-        <targetPath>META-INF</targetPath>
-      </resource>
-    </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -258,7 +191,6 @@
 					</excludes>
 				</configuration>
 			</plugin>
-		
 
         </plugins>
 		<finalName>addressbook</finalName>
@@ -339,38 +271,6 @@
             </activation>
             <build>
                 <plugins>
-		    <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-toolchains-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase/>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-plugin-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>default-descriptor</id>
-            <phase>process-classes</phase>
-          </execution>
-          <execution>
-            <id>help-goal</id>
-            <goals>
-              <goal>helpmojo</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>report</id>
-            <phase>package</phase>
-            <goals>
-              <goal>report</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-enforcer-plugin</artifactId>
@@ -401,11 +301,11 @@
                                     <artifactId>maven-project-info-reports-plugin</artifactId>
                                     <version>2.7</version>
                                 </plugin>
-					<!-- <plugin> -->
-						<!-- <groupId>org.jacoco</groupId> -->
-						<!--  <artifactId>jacoco-maven-plugin</artifactId> -->
-						<!-- <version>0.7.2.201409121644</version> -->
-							<!--  </plugin> -->
+                                <plugin>
+                                    <groupId>org.jacoco</groupId>
+                                    <artifactId>jacoco-maven-plugin</artifactId>
+                                    <version>0.7.2.201409121644</version>
+                                </plugin>
                                 <plugin>
                                     <groupId>org.apache.maven.plugins</groupId>
                                     <artifactId>maven-checkstyle-plugin</artifactId>
@@ -590,11 +490,6 @@
                 </plugins>
             </reporting>
         </profile>
-     </profiles>
-     <parent>
-    <groupId>org.jacoco</groupId>
-    <artifactId>org.jacoco.build</artifactId>
-    <version>0.8.12</version>
-    <relativePath>../org.jacoco.build</relativePath>
-  </parent>
+    </profiles>
+
 </project>
