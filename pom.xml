@@ -432,7 +432,12 @@
                         		<artifactId>tools</artifactId>
                         		<version>${java.version}</version>
 					<scope>system</scope>
-                       			<systemPath>${java.home}/lib/tools.jar</systemPath>
+                       			<exclusions>
+                				<exclusion>
+                    					<groupId>*</groupId>
+                    					<artifactId>*</artifactId>
+                				</exclusion>
+            				</exclusions>
                     		</dependency>
                 	    </dependencies>
                         </configuration>
